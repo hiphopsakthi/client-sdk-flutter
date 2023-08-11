@@ -419,11 +419,7 @@ class LocalParticipant extends Participant<LocalTrackPublication> {
       if (enabled) {
         await publication.unmute();
       } else {
-        if (source == TrackSource.screenShareVideo) {
-          await unpublishTrack(publication.sid);
-        } else {
-          await publication.mute();
-        }
+        await publication.mute();
       }
       await room.applyAudioSpeakerSettings();
       return publication;
